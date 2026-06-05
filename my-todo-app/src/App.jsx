@@ -2,12 +2,10 @@ import { useState } from 'react';
 import TaskForm from './components/Todo/TaskForm';
 import TaskItem from './components/Todo/TaskItem';
 import CounterWithStep from './components/Task1_Counter/CounterWithStep';
-import HabitTracker from './components/Task7_HabitTracker/HabitTracker';
-import ContactList from './components/Task10_ContactFilter/ContactList';
 import './App.css';
 
 function App() {
-  const [view, setView] = useState('todo'); // 'todo', 'counter', 'habits', 'contacts'
+  const [view, setView] = useState('todo');
   const [tasks, setTasks] = useState([]);
 
   const addTask = (text) => {
@@ -26,8 +24,6 @@ function App() {
       <nav>
         <button onClick={() => setView('todo')}>📋 To-Do List</button>
         <button onClick={() => setView('counter')}>🔢 Лічильник (завд.1)</button>
-        <button onClick={() => setView('habits')}>✅ Трекер звичок (завд.7)</button>
-        <button onClick={() => setView('contacts')}>📞 Фільтр контактів (завд.10)</button>
       </nav>
 
       {view === 'todo' && (
@@ -43,8 +39,6 @@ function App() {
       )}
 
       {view === 'counter' && <CounterWithStep />}
-      {view === 'habits' && <HabitTracker />}
-      {view === 'contacts' && <ContactList />}
     </div>
   );
 }
