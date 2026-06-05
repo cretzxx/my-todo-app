@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: system-ui, sans-serif;
+  background: #f4f4f9;
+  padding: 1rem;
+}
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+nav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.75rem;
+}
+nav button {
+  background: #eee;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+nav button:hover {
+  background: #ddd;
+}
+.todo-container, .counter-card, .habits-container, .contacts-container {
+  margin-top: 1rem;
+}
+.task-item, .habit-item, .contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9ff;
+  padding: 0.6rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: 0.5rem;
+  border: 1px solid #e0e0e0;
+}
+button {
+  background: #1e88e5;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+input {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+.search-input {
+  width: 100%;
+  margin-bottom: 1rem;
+}
