@@ -1,72 +1,263 @@
+/* Підключення сучасного шрифту */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  font-family: system-ui, sans-serif;
-  background: #f4f4f9;
-  padding: 1rem;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 2rem 1rem;
 }
+
 .app {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
-  background: white;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(2px);
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
+
+/* Стиль навігаційних кнопок */
 nav {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 1rem;
 }
+
 nav button {
-  background: #eee;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 2rem;
+  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
-  transition: 0.2s;
+  transition: all 0.25s ease;
+  color: #4a5568;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
+
 nav button:hover {
-  background: #ddd;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #fff 0%, #e2e8f0 100%);
+  color: #2d3748;
 }
-.todo-container, .counter-card, .habits-container, .contacts-container {
+
+/* Загальні контейнери */
+.todo-container, .counter-card {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2 {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+/* Форма додавання */
+form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+form input {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 1.5rem;
+  font-size: 1rem;
+  transition: all 0.2s;
+  font-family: inherit;
+  background: white;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+form button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+form button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Список завдань */
+ul {
+  list-style: none;
   margin-top: 1rem;
 }
-.task-item, .habit-item, .contact-item {
+
+.task-item {
+  background: #f8fafc;
+  border-radius: 1rem;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f9f9ff;
-  padding: 0.6rem 1rem;
-  margin: 0.5rem 0;
-  border-radius: 0.5rem;
-  border: 1px solid #e0e0e0;
+  transition: all 0.2s;
+  border-left: 5px solid #667eea;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
-button {
-  background: #1e88e5;
-  color: white;
-  border: none;
-  padding: 0.3rem 0.8rem;
-  border-radius: 0.5rem;
+
+.task-item:hover {
+  transform: translateX(5px);
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.task-item span {
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
+  flex: 1;
+  transition: color 0.2s;
 }
-button:disabled {
-  background: #aaa;
-  cursor: not-allowed;
+
+.task-item span[style*="line-through"] {
+  color: #94a3b8;
+  text-decoration: line-through;
 }
-input {
-  padding: 0.5rem;
+
+.task-item button {
+  background: #fee2e2;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.task-item button:hover {
+  background: #fecaca;
+  transform: scale(1.05);
+}
+
+/* Лічильник */
+.counter-card {
+  text-align: center;
+  background: linear-gradient(135deg, #fef9e6 0%, #fff4e0 100%);
+  padding: 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.counter-card div[style*="font-size: 3rem"] {
+  font-size: 4rem !important;
+  font-weight: 800;
+  margin: 1.5rem 0;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.counter-card button {
+  background: #4f46e5;
+  margin: 0 0.5rem;
+  padding: 0.7rem 1.8rem;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+}
+
+.counter-card button:hover {
+  background: #6366f1;
+}
+
+.counter-card input {
+  width: 80px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.counter-card p {
+  margin-top: 1.5rem;
+  font-weight: 500;
+  color: #dc2626;
+  background: #fff0f0;
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+}
+
+/* Покращений лічильник */
+.counter-card label {
+  font-weight: 600;
   margin-right: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
 }
-.search-input {
-  width: 100%;
-  margin-bottom: 1rem;
+
+/* Адаптивність */
+@media (max-width: 500px) {
+  .app {
+    padding: 1.5rem;
+  }
+  form {
+    flex-direction: column;
+  }
+  form button {
+    justify-content: center;
+  }
+  nav button {
+    flex: 1;
+    justify-content: center;
+  }
+  .counter-card div[style*="font-size: 3rem"] {
+    font-size: 3rem !important;
+  }
+}
+
+/* Стиль для інформаційного блоку (опціонально) */
+.task-stats {
+  background: #eef2ff;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #4a5568;
 }
